@@ -1,0 +1,13 @@
+<Solution>
+  <Folder Name="/sample/">
+    <Project Path="sample/Sample.Client1/Sample.Client1.csproj" />
+    <Project Path="sample/Sample.WebApi1/Sample.WebApi1.csproj" />
+    <Project Path="sample/Sample.WebApi2/Sample.WebApi2.csproj" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/Brimborium.Briggaglendr/Brimborium.Briggaglendr.csproj" />
+  </Folder>
+  <Folder Name="/test/">
+    <Project Path="test/Brimborium.Briggaglendr.Test/Brimborium.Briggaglendr.Test.csproj" />
+  </Folder>
+</Solution>
