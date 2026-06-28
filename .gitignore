@@ -428,6 +428,10 @@ FodyWeavers.xsd
 *.msm
 *.msp
 
+certificate/
+certificate/certificates.json
+certificate/root.cert
+
 /certificate/
 /certificate/certificates.json
 /certificate/root.cert
