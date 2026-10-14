@@ -20,7 +20,7 @@
             "browser": "src/main.ts",
             "outputPath":{
               "base": "dist",
-              "browser": "wwwwroot"
+              "browser": "wwwroot"
             },
             "deleteOutputPath": false,
             "tsConfig": "tsconfig.app.json",

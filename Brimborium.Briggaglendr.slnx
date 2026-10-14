@@ -1,6 +1,8 @@
 <Solution>
   <Folder Name="/sample/">
     <Project Path="sample/Sample.Client1/Sample.Client1.csproj" />
+    <Project Path="sample/Sample.FrontEnd1/Sample.FrontEnd1.csproj" />
+    <Project Path="sample/Sample.FrontEnd1UI/dist/Sample.FrontEnd1UI.csproj" />
     <Project Path="sample/Sample.WebApi1/Sample.WebApi1.csproj" />
     <Project Path="sample/Sample.WebApi2/Sample.WebApi2.csproj" />
   </Folder>

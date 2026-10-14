@@ -1,14 +1,48 @@
 namespace Sample.FrontEnd1;
 
 public class Program {
-    public static void Main(string[] args) {
-        var builder = WebApplication.CreateBuilder(args);
+    public readonly WebApplicationBuilder Builder;
+    public readonly AppConfiguration AppConfiguration;
+    private WebApplication? _WebApplication;
+    public WebApplication WebApplication => this._WebApplication ?? throw new Exception("WebApplication is null");
 
-        // Add services to the container.
-        builder.Services.AddRazorPages();
+    public Program(WebApplicationBuilder builder, AppConfiguration appConfiguration) {
+        this.Builder = builder;
+        this.AppConfiguration = appConfiguration;
+    }
 
-        var app = builder.Build();
+    public async Task MainAsync() {
+        try {
+            await this.RunAsync();
+        } catch (AggregateException error) {
+            error.Handle((error) => {
+                System.Console.Error.WriteLine(error.ToString());
+                return true;
+            });
+        } catch (Exception error) {
+            System.Console.Error.WriteLine(error.ToString());
+        }
+    }
+    public virtual async Task RunAsync() {
+        this.ConfigureBuilder();
+        var app = this.Builder.Build();
+        this._WebApplication = app;
+        this.ConfigureApplication();
+        await app.RunAsync();
+    }
 
+    private void ConfigureBuilder() {
+        this.Builder.Services.AddRazorPages();
+        this.Builder.Services.AddBriggaglendr(
+            this.Builder.Configuration.GetSection("Briggaglendr"),
+            (options) => {
+                //
+            });
+    }
+
+    private void ConfigureApplication() {
+        var app = this.WebApplication;
+        app.UseBriggaglendr();
         // Configure the HTTP request pipeline.
         if (!app.Environment.IsDevelopment()) {
             app.UseExceptionHandler("/Error");
@@ -22,10 +56,22 @@ public class Program {
 
         app.UseAuthorization();
 
+        app.MapBriggaglendr();
         app.MapStaticAssets();
         app.MapRazorPages()
            .WithStaticAssets();
-
-        app.Run();
     }
+
+    public static async Task Main(string[] args) {
+        var builder = WebApplication.CreateBuilder(args);
+
+        AppConfiguration appConfiguration = new();
+        builder.Configuration.Bind(appConfiguration);
+
+        Program program = new (builder, appConfiguration);
+        await program.MainAsync();
+    }
+}
+
+public class AppConfiguration { 
 }
