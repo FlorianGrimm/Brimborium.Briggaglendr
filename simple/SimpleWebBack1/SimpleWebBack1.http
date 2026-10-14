@@ -1,0 +1,11 @@
+@SimpleWebBack1_HostAddress = http://localhost:5004
+
+GET {{SimpleWebBack1_HostAddress}}/todos/
+Accept: application/json
+
+###
+
+GET {{SimpleWebBack1_HostAddress}}/todos/1
+Accept: application/json
+
+###

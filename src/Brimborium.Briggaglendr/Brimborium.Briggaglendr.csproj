@@ -5,6 +5,7 @@
         <Nullable>enable</Nullable>
         <OutputType>Library</OutputType>
         <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+        <IsAotCompatible>true</IsAotCompatible>
     </PropertyGroup>
 
 </Project>

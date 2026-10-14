@@ -6,6 +6,11 @@
     <Project Path="sample/Sample.WebApi1/Sample.WebApi1.csproj" />
     <Project Path="sample/Sample.WebApi2/Sample.WebApi2.csproj" />
   </Folder>
+  <Folder Name="/simple/">
+    <Project Path="simple/SimpleNBomber/SimpleNBomber.csproj" Id="b4905d9a-b0c4-4a9a-87e2-162da502fdc2" />
+    <Project Path="simple/SimpleWebBack1/SimpleWebBack1.csproj" Id="4c9c350b-ab27-4b13-8697-d3ba7c9caca3" />
+    <Project Path="simple/SimpleWebFront/SimpleWebFront.csproj" Id="7c2ebd40-2f12-4ac8-a8f7-436d1e62a346" />
+  </Folder>
   <Folder Name="/Solution Items/">
     <File Path=".gitignore" />
     <File Path="Directory.Build.props" />
